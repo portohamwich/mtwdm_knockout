@@ -1,0 +1,37 @@
+<article id="clientesWrapper">
+    <h1>Clientes</h1>
+
+    <div>
+        <input class="input-sm" style="float:right" type="text" data-bind="textInput: filter" placeholder="Búsqueda" />
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Cliente</th>
+                <th>Dirección</th>
+                <th>Contacto</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody data-bind="foreach: filteredClientes(filter)">
+            <tr>
+                <td data-bind="text: cliente"></td>
+                <td data-bind="text: direccion"></td>
+                <td data-bind="text: contacto"></td>
+                <td style="text-align: right">
+                    <button class="btn btn-default">Editar</button>
+                    <button class="btn btn-danger">Eliminar</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</article>
+
+<script src="js/models/clientes.js"></script>
+<script>
+    $(document).ready(function(){
+        viewModelClientes.getClientes();
+        ko.applyBindings(viewModelClientes, document.getElementById("clientesWrapper"));
+    });
+</script>

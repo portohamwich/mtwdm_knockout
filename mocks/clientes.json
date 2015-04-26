@@ -1,0 +1,38 @@
+[
+  {
+    "idcliente": "1",
+    "cliente": "Cliente 1",
+    "direccion": "Direccón del cliente numero 1",
+    "contacto": "Contacto 1"
+  },
+  {
+    "idcliente": "2",
+    "cliente": "Cliente 2",
+    "direccion": "Direccón del cliente numero 2",
+    "contacto": "Contacto 2"
+  },
+  {
+    "idcliente": "3",
+    "cliente": "Cliente 3",
+    "direccion": "Direccón del cliente numero 3",
+    "contacto": "Contacto 3"
+  },
+  {
+    "idcliente": "4",
+    "cliente": "Cliente 4",
+    "direccion": "Direccón del cliente numero 4",
+    "contacto": "Contacto 4"
+  },
+  {
+    "idcliente": "5",
+    "cliente": "Cliente 5",
+    "direccion": "Direccón del cliente numero 5",
+    "contacto": "Contacto 5"
+  },
+  {
+    "idcliente": "6",
+    "cliente": "Cliente 6",
+    "direccion": "Direccón del cliente numero 6",
+    "contacto": "Contacto 6"
+  }
+]

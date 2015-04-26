@@ -1,0 +1,62 @@
+<article id="usersWrpper">
+    <h1>Usuarios</h1>
+
+    <button class="btn btn-default" data-bind="click: showNew, visible: showList">Registrar nuevo</button>
+
+    <div data-bind="visible: showList" class="col-sm-8" style="float: none">
+        <input class="input-sm" style="float: right" type="text" data-bind="textInput: filter" placeholder="Búsqueda" />
+
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Email</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: filteredUsers(filter)">
+                    <tr>
+                        <td data-bind="text: usuario"></td>
+                        <td data-bind="text: email"></td>
+                        <td style="text-align: right">
+                            <button class="btn btn-default" data-bind="click:$parent.editUser">Editar</button>
+                            <button class="btn btn-danger">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="col-sm-8" style="float: none" data-bind="visible: showRegister">
+        <h3>Registrar nuevo usuario</h3>
+
+        <form>
+            <div class="col-sm-12">
+                <input class="input-sm" type="text" placeholder="Nombre" style="margin-bottom: 10px;" data-bind="textInput:username"><br>
+                <input class="input-sm" type="text" placeholder="Email" style="margin-bottom: 10px;" data-bind="textInput:usermail"><br />
+                <input class="input-sm" type="text" placeholder="Password" style="margin-bottom: 10px;" data-bind="textInput:userpassword"><br />
+                <select data-bind="options: tiposUsuario,
+                           optionsText: 'tag',
+                           value: usertype,
+                           optionsValue: 'val',
+                           optionsCaption: 'Selecciona uno...'">
+                </select>
+                <br><br>
+                <button class="btn btn-default" data-bind="click: hideNew">Cancelar</button>
+                <button class="btn btn-primary" data-bind="click: saveUser">Crear</button>
+            </div>
+        </form>
+    </div>
+</article>
+
+
+
+<script src="js/models/users.js"></script>
+<script>
+    $(document).ready(function(){
+        viewModelUsers.getUsers();
+        ko.applyBindings(viewModelUsers, document.getElementById("usersWrapper"));
+    });
+</script>

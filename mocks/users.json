@@ -1,0 +1,20 @@
+[
+    {
+      "usuarioId": "1",
+      "usuario": "Primero",
+      "email": "me@test.com",
+      "tipousuario": "0"
+    },
+    {
+      "usuarioId": "2",
+      "usuario": "Segundo",
+      "email": "me@test2.com",
+      "tipousuario": "1"
+    },
+    {
+      "usuarioId": "3",
+      "usuario": "Tercero",
+      "email": "me@test3.com",
+      "tipousuario": "0"
+    }
+]
