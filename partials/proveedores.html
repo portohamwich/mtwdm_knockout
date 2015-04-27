@@ -1,4 +1,4 @@
-<article id="clientesWrapper">
+<article id="proveedoresWrapper">
 
     <div class="loading" data-bind="visible: loading">
         <div class="facebookG">
@@ -11,7 +11,7 @@
         </div>
     </div>
 
-    <h1>Clientes</h1>
+    <h1>Proveedores</h1>
 
     <button class="btn btn-default" data-bind="click: showNew, visible: showList() && !loading()">Registrar nuevo</button>
 
@@ -21,20 +21,20 @@
         <table class="table">
             <thead>
             <tr>
-                <th>Cliente</th>
+                <th>Proveedor</th>
                 <th>Dirección</th>
                 <th>Contacto</th>
                 <th></th>
             </tr>
             </thead>
-            <tbody data-bind="foreach: filteredClientes(filter)">
+            <tbody data-bind="foreach: filteredProveedores(filter)">
             <tr>
-                <td data-bind="text: cliente"></td>
+                <td data-bind="text: proveedor"></td>
                 <td data-bind="text: direccion"></td>
                 <td data-bind="text: contacto"></td>
                 <td style="text-align: right">
-                    <button class="btn btn-default" data-bind="click: $parent.getCliente">Editar</button>
-                    <button class="btn btn-danger" data-bind="click: $parent.deleteCliente">Eliminar</button>
+                    <button class="btn btn-default" data-bind="click: $parent.getProveedor">Editar</button>
+                    <button class="btn btn-danger" data-bind="click: $parent.deleteProveedor">Eliminar</button>
                 </td>
             </tr>
             </tbody>
@@ -42,26 +42,26 @@
     </div>
 
     <div style="float: none" data-bind="visible: !showList() && !loading()">
-        <h3>Guardar cliente</h3>
+        <h3>Guardar proveedor</h3>
 
         <form>
             <div class="col-sm-12">
-                <input class="input-sm" type="text" placeholder="Nombre" style="margin-bottom: 10px;" data-bind="textInput:cliente.nombre"><br>
-                <input class="input-sm" type="text" placeholder="Dirección" style="margin-bottom: 10px;" data-bind="textInput:cliente.direccion"><br />
-                <input class="input-sm" type="text" placeholder="Contacto" style="margin-bottom: 10px;" data-bind="textInput:cliente.contacto"><br />
+                <input class="input-sm" type="text" placeholder="Nombre" style="margin-bottom: 10px;" data-bind="textInput:proveedor.nombre"><br>
+                <input class="input-sm" type="text" placeholder="Dirección" style="margin-bottom: 10px;" data-bind="textInput:proveedor.direccion"><br />
+                <input class="input-sm" type="text" placeholder="Contacto" style="margin-bottom: 10px;" data-bind="textInput:proveedor.contacto"><br />
                 <br><br>
                 <button class="btn btn-default" data-bind="click: hideNew">Cancelar</button>
-                <button class="btn btn-primary" data-bind="click: saveCliente">Guardar</button>
+                <button class="btn btn-primary" data-bind="click: saveProveedor">Guardar</button>
             </div>
         </form>
     </div>
 </article>
 
-<script src="js/models/clientes.js"></script>
+<script src="js/models/proveedores.js"></script>
 <script>
     $(document).ready(function(){
         $('.facebookG').center();
-        viewModelClientes.getClientes();
-        ko.applyBindings(viewModelClientes, document.getElementById("clientesWrapper"));
+        viewModelProveedores.getProveedores();
+        ko.applyBindings(viewModelProveedores, document.getElementById("proveedoresWrapper"));
     });
 </script>

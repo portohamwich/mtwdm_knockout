@@ -1,11 +1,11 @@
-<article id="usersWrpper">
+<article id="usersWrapper">
     <div class="loading" data-bind="visible: loading">
-        <div id="facebookG">
-            <div id="blockG_1" class="facebook_blockG">
+        <div class="facebookG">
+            <div class="blockG_1 facebook_blockG">
             </div>
-            <div id="blockG_2" class="facebook_blockG">
+            <div class="facebook_blockG blockG_2">
             </div>
-            <div id="blockG_3" class="facebook_blockG">
+            <div class="facebook_blockG blockG_3">
             </div>
         </div>
     </div>
@@ -14,7 +14,7 @@
 
     <button class="btn btn-default" data-bind="click: showNew, visible: showList() && !loading()">Registrar nuevo</button>
 
-    <div data-bind="visible: showList() && !loading()" class="col-sm-8" style="float: none">
+    <div data-bind="visible: showList() && !loading()" style="float: none">
         <input class="input-sm" style="float: right" type="text" data-bind="textInput: filter" placeholder="Búsqueda" />
 
         <div>
@@ -45,9 +45,8 @@
         </div>
     </div>
 
-    <div class="col-sm-8" style="float: none" data-bind="visible: showRegister() && !loading()">
+    <div style="float: none" data-bind="visible: showRegister() && !loading()">
         <h3>Guardar usuario</h3>
-        <span data-bind="text: selectedUser"></span>
 
         <form>
             <div class="col-sm-12">
@@ -73,7 +72,7 @@
 <script src="js/models/users.js"></script>
 <script>
     $(document).ready(function(){
-        $('#facebookG').center();
+        $('.facebookG').center();
         viewModelUsers.getUsers();
         ko.applyBindings(viewModelUsers, document.getElementById("usersWrapper"));
     });

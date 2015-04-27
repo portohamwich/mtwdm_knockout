@@ -15,5 +15,9 @@ function getPartial() {
         case '#clientes':
             $('#content').load('partials/clientes.html');
             break;
+
+        case '#proveedores':
+            $('#content').load('partials/proveedores.html');
+            break;
     }
 }

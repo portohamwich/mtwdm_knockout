@@ -1,4 +1,4 @@
-#facebookG {
+.facebookG {
     width:128px;
     position: absolute;
     z-index: 10000;
@@ -41,7 +41,7 @@
     transform:scale(0.7);
 }
 
-#blockG_1{
+.blockG_1{
     -moz-animation-delay:0.39s;
     -webkit-animation-delay:0.39s;
     -ms-animation-delay:0.39s;
@@ -49,7 +49,7 @@
     animation-delay:0.39s;
 }
 
-#blockG_2{
+.blockG_2{
     -moz-animation-delay:0.52s;
     -webkit-animation-delay:0.52s;
     -ms-animation-delay:0.52s;
@@ -57,7 +57,7 @@
     animation-delay:0.52s;
 }
 
-#blockG_3{
+.blockG_3{
     -moz-animation-delay:0.65s;
     -webkit-animation-delay:0.65s;
     -ms-animation-delay:0.65s;
