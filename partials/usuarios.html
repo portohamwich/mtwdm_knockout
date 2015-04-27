@@ -1,9 +1,20 @@
 <article id="usersWrpper">
+    <div class="loading" data-bind="visible: loading">
+        <div id="facebookG">
+            <div id="blockG_1" class="facebook_blockG">
+            </div>
+            <div id="blockG_2" class="facebook_blockG">
+            </div>
+            <div id="blockG_3" class="facebook_blockG">
+            </div>
+        </div>
+    </div>
+
     <h1>Usuarios</h1>
 
-    <button class="btn btn-default" data-bind="click: showNew, visible: showList">Registrar nuevo</button>
+    <button class="btn btn-default" data-bind="click: showNew, visible: showList() && !loading()">Registrar nuevo</button>
 
-    <div data-bind="visible: showList" class="col-sm-8" style="float: none">
+    <div data-bind="visible: showList() && !loading()" class="col-sm-8" style="float: none">
         <input class="input-sm" style="float: right" type="text" data-bind="textInput: filter" placeholder="Búsqueda" />
 
         <div>
@@ -34,15 +45,16 @@
         </div>
     </div>
 
-    <div class="col-sm-8" style="float: none" data-bind="visible: showRegister">
-        <h3>Registrar nuevo usuario</h3>
+    <div class="col-sm-8" style="float: none" data-bind="visible: showRegister() && !loading()">
+        <h3>Guardar usuario</h3>
+        <span data-bind="text: selectedUser"></span>
 
         <form>
             <div class="col-sm-12">
                 <input class="input-sm" type="text" placeholder="Nombre" style="margin-bottom: 10px;" data-bind="textInput:username"><br>
                 <input class="input-sm" type="text" placeholder="Email" style="margin-bottom: 10px;" data-bind="textInput:usermail"><br />
                 <input class="input-sm" type="text" placeholder="Password" style="margin-bottom: 10px;" data-bind="textInput:userpassword"><br />
-                <select data-bind="options: tiposUsuario,
+                <select style="color: grey" class="input-sm" data-bind="options: tiposUsuario,
                            optionsText: 'tag',
                            value: usertype,
                            optionsValue: 'val',
@@ -50,7 +62,7 @@
                 </select>
                 <br><br>
                 <button class="btn btn-default" data-bind="click: hideNew">Cancelar</button>
-                <button class="btn btn-primary" data-bind="click: saveUser">Crear</button>
+                <button class="btn btn-primary" data-bind="click: saveUser">Guardar</button>
             </div>
         </form>
     </div>
@@ -61,6 +73,7 @@
 <script src="js/models/users.js"></script>
 <script>
     $(document).ready(function(){
+        $('#facebookG').center();
         viewModelUsers.getUsers();
         ko.applyBindings(viewModelUsers, document.getElementById("usersWrapper"));
     });

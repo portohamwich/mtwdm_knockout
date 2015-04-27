@@ -11,6 +11,7 @@ function usersView(_usuarioid, _usuario, _email, _tipo) {
 //ViewModels
 var viewModelUsers = {
     //Properties
+    loading: ko.observable(false),
     showList: ko.observable(true),
     showRegister: ko.observable(false),
     showform: ko.observable(false),
@@ -20,18 +21,26 @@ var viewModelUsers = {
     username: ko.observable(""),
     userpassword: ko.observable(""),
     usertype: ko.observable(""),
+    selectedUser: ko.observable(null),
     tiposUsuario: ko.observableArray([
         { tag: "Administrador", val: 0 },
         { tag: "Simple mortal", val: 1 }
     ]),
     //Methods
     getUsers: function() {
-        $.getJSON("http://apirest.dyndns.org/ApiRest/usuarios", function(data){
-            $.each(data, function(i, item){
-                var u = new usersView(item.idUsuarios, item.usuario, item.email, item.tipoUsuario);
-                viewModelUsers.users.push(u);
+        viewModelUsers.loading(true);
+        viewModelUsers.users([]);
+
+        setTimeout(function(){
+            $.getJSON(baseUrl + "/getUsuarios", function(data){
+                $.each(data, function(i, item){
+                    var u = new usersView(item.idUsuarios, item.usuario, item.email, item.tipoUsuario);
+                    viewModelUsers.users.push(u);
+                });
+                viewModelUsers.loading(false);
             });
-        });
+        }, 1000);
+
     },
     filteredUsers: function() {
         var _filter = this.filter();
@@ -51,8 +60,15 @@ var viewModelUsers = {
 
     },
     showNew: function() {
-        this.showList(false);
-        this.showRegister(true);
+        viewModelUsers.selectedUser(null);
+
+        viewModelUsers.usermail("");
+        viewModelUsers.username("");
+        viewModelUsers.userpassword("");
+        viewModelUsers.usertype(null);
+
+        viewModelUsers.showList(false);
+        viewModelUsers.showRegister(true);
     },
     hideNew: function() {
         this.showList(true);
@@ -69,7 +85,7 @@ var viewModelUsers = {
 
         $.ajax({
             type: "POST",
-            url: baseUrl + "usuarios",
+            url: baseUrl + "createUsuario",
             data: data,
             success: this.hideNew,
             dataType: "json"
@@ -86,9 +102,17 @@ var viewModelUsers = {
         });
     },
     editUser: function(item) {
-        this.showList(false);
-        this.showRegister(true);
-        console.log(item.idUsuarios());
+        viewModelUsers.loading(true);
+        viewModelUsers.showNew();
+        viewModelUsers.selectedUser(item.idUsuarios());
+
+        $.getJSON(baseUrl + "getUsuario/" + item.idUsuarios(), function(data){
+            viewModelUsers.loading(false);
+            viewModelUsers.usermail(data[0].email);
+            viewModelUsers.username(data[0].usuario);
+            viewModelUsers.userpassword(data[0].password);
+            viewModelUsers.usertype(data[0].tipoUsuario);
+        });
     },
     deleteUser: function(item) {
         var data = { idUsuarios: item.idUsuarios() };
