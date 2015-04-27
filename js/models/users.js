@@ -86,6 +86,8 @@ var viewModelUsers = {
         });
     },
     editUser: function(item) {
+        this.showList(false);
+        this.showRegister(true);
         console.log(item.idUsuarios());
     },
     deleteUser: function(item) {
