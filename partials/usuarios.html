@@ -12,6 +12,7 @@
                     <tr>
                         <th>Usuario</th>
                         <th>Email</th>
+                        <th>Tipo</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -19,9 +20,13 @@
                     <tr>
                         <td data-bind="text: usuario"></td>
                         <td data-bind="text: email"></td>
+                        <td>
+                            <span data-bind="visible: $parent.isAdmin($data)">Administrador</span>
+                            <span data-bind="visible: $parent.isNormal($data)">Simple mortal</span>
+                        </td>
                         <td style="text-align: right">
                             <button class="btn btn-default" data-bind="click:$parent.editUser">Editar</button>
-                            <button class="btn btn-danger">Eliminar</button>
+                            <button class="btn btn-danger" data-bind="click:$parent.deleteUser">Eliminar</button>
                         </td>
                     </tr>
                 </tbody>

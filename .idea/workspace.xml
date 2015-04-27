@@ -25,55 +25,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="globals.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/globals.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.6" vertical-offset="0" max-vertical-offset="255">
+              <caret line="13" column="2" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
+              <folding>
+                <element signature="e#0#40#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="users.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/models/users.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="1380">
-              <caret line="38" column="34" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
+            <state vertical-scroll-proportion="-6.7777777" vertical-offset="432" max-vertical-offset="1875">
+              <caret line="41" column="13" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="13" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="clientes.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/models/clientes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="82" max-vertical-offset="660">
-              <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="clientes.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mocks/clientes.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.083334" vertical-offset="91" max-vertical-offset="645">
-              <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="users.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mocks/users.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="375">
-              <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="clientes.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/partials/clientes.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.333333" vertical-offset="61" max-vertical-offset="630">
-              <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
-              <folding>
-                <element signature="n#style#0;n#input#0;n#div#0;n#article#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#article#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -81,12 +50,12 @@
       <file leaf-file-name="usuarios.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/partials/usuarios.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.24368231" vertical-offset="135" max-vertical-offset="1005">
-              <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.054151624" vertical-offset="0" max-vertical-offset="1080">
+              <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#article#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#div#0;n#article#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#article#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#article#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#article#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#1;n#article#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#1;n#div#0;n#form#0;n#div#1;n#article#0;n#!!top" expanded="true" />
@@ -119,9 +88,9 @@
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/mocks/clientes.json" />
         <option value="$PROJECT_DIR$/partials/clientes.html" />
-        <option value="$PROJECT_DIR$/js/globals.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/models/clientes.js" />
+        <option value="$PROJECT_DIR$/js/globals.js" />
         <option value="$PROJECT_DIR$/js/models/users.js" />
         <option value="$PROJECT_DIR$/partials/usuarios.html" />
       </list>
@@ -254,6 +223,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/css" />
       <recent name="$PROJECT_DIR$/js/lib" />
       <recent name="$PROJECT_DIR$/js/models" />
@@ -376,8 +346,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="105">
           <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
           <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#article#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#article#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#article#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#article#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -389,7 +359,7 @@
           <folding>
             <element signature="n#style#0;n#div#0;n#article#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#article#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#article#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#article#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#article#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#1;n#article#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#1;n#div#0;n#form#0;n#div#1;n#article#0;n#!!top" expanded="true" />
@@ -421,7 +391,7 @@
           <folding>
             <element signature="n#style#0;n#div#0;n#article#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#article#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#article#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#article#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#article#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#1;n#article#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#1;n#div#0;n#form#0;n#div#1;n#article#0;n#!!top" expanded="true" />
@@ -469,7 +439,7 @@
           <folding>
             <element signature="n#style#0;n#div#0;n#article#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#article#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#article#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#article#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#article#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#1;n#article#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#1;n#div#0;n#form#0;n#div#1;n#article#0;n#!!top" expanded="true" />
@@ -533,39 +503,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mocks/clientes.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.083334" vertical-offset="91" max-vertical-offset="645">
-          <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/globals.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.708334" vertical-offset="16" max-vertical-offset="585">
-          <caret line="31" column="41" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/partials/clientes.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.333333" vertical-offset="61" max-vertical-offset="630">
+        <state vertical-scroll-proportion="0.5144404" vertical-offset="0" max-vertical-offset="630">
           <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
           <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#article#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#article#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#article#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#article#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -578,30 +522,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/models/users.js">
+    <entry file="file://$PROJECT_DIR$/mocks/clientes.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="1380">
-          <caret line="38" column="34" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.7833935" vertical-offset="91" max-vertical-offset="645">
+          <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/models/clientes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="67" max-vertical-offset="660">
+        <state vertical-scroll-proportion="0.6747405" vertical-offset="0" max-vertical-offset="660">
           <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.708334" vertical-offset="16" max-vertical-offset="585">
+          <caret line="31" column="41" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/globals.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.6" vertical-offset="0" max-vertical-offset="255">
+          <caret line="13" column="2" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/models/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.7777777" vertical-offset="432" max-vertical-offset="1875">
+          <caret line="41" column="13" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/partials/usuarios.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24368231" vertical-offset="135" max-vertical-offset="1005">
-          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.054151624" vertical-offset="0" max-vertical-offset="1080">
+          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
           <folding>
             <element signature="n#style#0;n#div#0;n#article#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#article#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#article#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#article#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#article#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#1;n#article#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#1;n#div#0;n#form#0;n#div#1;n#article#0;n#!!top" expanded="true" />

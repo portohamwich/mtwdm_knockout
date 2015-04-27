@@ -1,7 +1,7 @@
 //Modelos
 function usersView(_usuarioid, _usuario, _email, _tipo) {
     return {
-        usuarioid: ko.observable(_usuarioid),
+        idUsuarios: ko.observable(_usuarioid),
         usuario: ko.observable(_usuario),
         email: ko.observable(_email),
         tipo: ko.observable(_tipo)
@@ -26,10 +26,9 @@ var viewModelUsers = {
     ]),
     //Methods
     getUsers: function() {
-        viewModelUsers.users = ko.observableArray([]);
-        $.getJSON("mocks/users.json", function(data){
+        $.getJSON("http://apirest.dyndns.org/ApiRest/usuarios", function(data){
             $.each(data, function(i, item){
-                var u = new usersView(item.usuarioId, item.usuario, item.email, item.tipousuario);
+                var u = new usersView(item.idUsuarios, item.usuario, item.email, item.tipoUsuario);
                 viewModelUsers.users.push(u);
             });
         });
@@ -68,18 +67,52 @@ var viewModelUsers = {
                      tipousuario: this.usertype()
                     };
 
-        url ="";
-
         $.ajax({
             type: "POST",
-            url: url,
+            url: baseUrl + "usuarios",
             data: data,
             success: this.hideNew,
             dataType: "json"
+
+        }).always(function(val){
+            var data = {
+                usuario: ko.observable(viewModelUsers.username()),
+                password: ko.observable(viewModelUsers.userpassword()),
+                email: ko.observable(viewModelUsers.usermail()),
+                tipo: ko.observable(viewModelUsers.usertype())
+            };
+            viewModelUsers.users.push(data);
+            viewModelUsers.hideNew();
         });
     },
     editUser: function(item) {
-        console.log(item.usuarioid());
+        console.log(item.idUsuarios());
+    },
+    deleteUser: function(item) {
+        var data = { idUsuarios: item.idUsuarios() };
+
+        $.ajax({
+            type: "DELETE",
+            url: baseUrl + "usuarios/" + item.idUsuarios(),
+            data: data,
+            success: viewModelUsers.successFn,
+            dataType: "json"
+
+        }).done(function(val){
+            console.log('done');
+        }).fail(function(){
+            console.log('fail')
+        });
+    },
+    isAdmin: function(item) {
+        return item.tipo() == '0' ? true : false;
+    },
+    isNormal: function(item) {
+        return item.tipo() == 1 ? true : false;
+    },
+    successFn: function(val){
+        console.log('asdadsad');
+        console.log(val);
     }
 };
 
