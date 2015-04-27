@@ -77,17 +77,22 @@ var viewModelUsers = {
     },
     saveUser: function() {
         var data = {
-                     usuario: this.username(),
-                     password: this.userpassword(),
-                     email: this.usermail(),
-                     tipousuario: this.usertype()
-                    };
+            usuario: this.username(),
+            password: this.userpassword(),
+            email: this.usermail(),
+            tipousuario: this.usertype()
+        };
+        var url = baseUrl + "createUsuario";
+
+        if(viewModelUsers.selectedUser()) {
+            url = baseUrl + "updateUsuario";
+            data.idusuarios = viewModelUsers.selectedUser();
+        }
 
         $.ajax({
             type: "POST",
-            url: baseUrl + "createUsuario",
+            url: url,
             data: data,
-            success: this.hideNew,
             dataType: "json"
 
         }).always(function(val){
@@ -115,19 +120,16 @@ var viewModelUsers = {
         });
     },
     deleteUser: function(item) {
-        var data = { idUsuarios: item.idUsuarios() };
+        var data = { idusuarios: item.idUsuarios() };
 
         $.ajax({
-            type: "DELETE",
-            url: baseUrl + "usuarios/" + item.idUsuarios(),
+            type: "POST",
+            url: baseUrl + "deleteUsuario",
             data: data,
-            success: viewModelUsers.successFn,
             dataType: "json"
 
-        }).done(function(val){
-            console.log('done');
-        }).fail(function(){
-            console.log('fail')
+        }).always(function(){
+            viewModelUsers.hideNew();
         });
     },
     isAdmin: function(item) {
@@ -135,10 +137,6 @@ var viewModelUsers = {
     },
     isNormal: function(item) {
         return item.tipo() == 1 ? true : false;
-    },
-    successFn: function(val){
-        console.log('asdadsad');
-        console.log(val);
     }
 };
 
