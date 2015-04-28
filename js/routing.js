@@ -19,5 +19,13 @@ function getPartial() {
         case '#proveedores':
             $('#content').load('partials/proveedores.html');
             break;
+
+        case '#insumos':
+            $('#content').load('partials/insumos.html');
+            break;
+
+        case '#productos':
+            $('#content').load('partials/productos.html');
+            break;
     }
 }

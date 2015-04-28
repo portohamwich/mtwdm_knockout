@@ -1,0 +1,51 @@
+<article id="productosWrapper">
+
+    <div class="loading" data-bind="visible: loading">
+        <div class="facebookG">
+            <div class="blockG_1 facebook_blockG">
+            </div>
+            <div class="facebook_blockG blockG_2">
+            </div>
+            <div class="facebook_blockG blockG_3">
+            </div>
+        </div>
+    </div>
+
+    <h1>Insumos</h1>
+
+    <button class="btn btn-default" data-bind="click: showNew, visible: showList() && !loading()">Registrar nuevo</button>
+
+    <div data-bind="visible: !loading() && showList()">
+        <input class="input-sm" style="float:right" type="text" data-bind="textInput: filter" placeholder="Búsqueda" />
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Insumo</th>
+                <th>Precio</th>
+                <th>Existencia</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody data-bind="foreach: filteredProductos(filter)">
+            <tr>
+                <td data-bind="text: producto"></td>
+                <td data-bind="text: precio"></td>
+                <td style="text-align: right">
+                    <button class="btn btn-default">Editar</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</article>
+
+<script src="js/models/productos.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.facebookG').center();
+        viewModelProductos.getProductos();
+        ko.applyBindings(viewModelProductos, document.getElementById("productosWrapper"));
+    });
+</script>
