@@ -55,7 +55,6 @@ var viewModelInsumos = {
 
         var url = baseUrl + "createInsumo";
 
-
         $.ajax({
             type: "POST",
             url: url,
@@ -64,6 +63,21 @@ var viewModelInsumos = {
         }).always(function(val){
             viewModelInsumos.hideNew();
             viewModelInsumos.getInsumos();
+        });
+    },
+    getInsumo: function() {
+        viewModelClientes.loading(true);
+        var data = { idproveedor: item.idcliente() };
+
+        $.ajax({
+            type: "POST",
+            url: baseUrl + "deleteProveedor",
+            data: data,
+            dataType: "json"
+
+        }).always(function(){
+            viewModelProveedors.hideNew();
+            viewModelProveedors.getProveedores();
         });
     },
     showNew: function() {
