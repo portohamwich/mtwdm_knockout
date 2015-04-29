@@ -55,6 +55,11 @@ var viewModelInsumos = {
 
         var url = baseUrl + "createInsumo";
 
+        if(viewModelInsumos.selectedInsumo()) {
+            url = baseUrl + "updateInsumo";
+            data.idinsumo = viewModelInsumos.selectedInsumo();
+        }
+
         $.ajax({
             type: "POST",
             url: url,
@@ -65,25 +70,24 @@ var viewModelInsumos = {
             viewModelInsumos.getInsumos();
         });
     },
-    getInsumo: function() {
-        viewModelClientes.loading(true);
-        var data = { idproveedor: item.idcliente() };
+    getInsumo: function(item) {
+        viewModelInsumos.loading(true);
+        viewModelInsumos.selectedInsumo(item.idinsumo());
 
-        $.ajax({
-            type: "POST",
-            url: baseUrl + "deleteProveedor",
-            data: data,
-            dataType: "json"
+        $.getJSON(baseUrl + "getInsumo/" + item.idinsumo(), function (data) {
+            viewModelInsumos.insumo.insumo(data[0].insumo);
+            viewModelInsumos.insumo.precio(data[0].precio);
+            viewModelInsumos.insumo.existencia(data[0].existencia);
 
-        }).always(function(){
-            viewModelProveedors.hideNew();
-            viewModelProveedors.getProveedores();
+            viewModelInsumos.loading(false);
+            viewModelInsumos.showNew();
         });
     },
     showNew: function() {
         viewModelInsumos.showList(false);
     },
     hideNew: function() {
+        viewModelInsumos.selectedInsumo(false);
         viewModelInsumos.insumo.insumo("");
         viewModelInsumos.insumo.precio("");
         viewModelInsumos.insumo.existencia("");
