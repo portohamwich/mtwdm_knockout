@@ -11,32 +11,65 @@
         </div>
     </div>
 
-    <h1>Insumos</h1>
+    <h1>Productos</h1>
 
-    <button class="btn btn-default" data-bind="click: showNew, visible: showList() && !loading()">Registrar nuevo</button>
+    <div data-bind="visible: !vistaDetalles()">
+        <button class="btn btn-default" data-bind="click: showNew, visible: showList() && !loading()">Registrar nuevo</button>
 
-    <div data-bind="visible: !loading() && showList()">
-        <input class="input-sm" style="float:right" type="text" data-bind="textInput: filter" placeholder="Búsqueda" />
+        <div data-bind="visible: !loading() && showList()">
+            <input class="input-sm" style="float:right" type="text" data-bind="textInput: filter" placeholder="Búsqueda" />
 
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Insumo</th>
-                <th>Precio</th>
-                <th>Existencia</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody data-bind="foreach: filteredProductos(filter)">
-            <tr>
-                <td data-bind="text: producto"></td>
-                <td data-bind="text: precio"></td>
-                <td style="text-align: right">
-                    <button class="btn btn-default">Editar</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody data-bind="foreach: filteredProductos(filter)">
+                <tr>
+                    <td data-bind="text: producto"></td>
+                    <td data-bind="text: precio"></td>
+                    <td style="text-align: right">
+                        <button class="btn btn-default" data-bind="click: $parent.getInsumos">Insumos</button>
+                        <button class="btn btn-default" data-bind="click: $parent.getProducto">Editar</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div data-bind="visible: vistaDetalles">
+        <h2 data-bind="text: selectedProducto.nombre"></h2>
+
+        <div class="col-lg-6 col-sm-6">
+            <h3>Agregar Insumo</h3>
+            <select style="color: grey" class="input-sm" data-bind="options: allInsumos,
+                           optionsText: 'insumo',
+                           value: insumoSelectValue,
+                           optionsValue: 'id',
+                           optionsCaption: 'Selecciona uno...'">
+            </select>
+            <button class="btn btn-primary" data-bind="click: addInsumo">Agregar</button>
+        </div>
+
+        <div class="col-lg-6 col-sm-6">
+            <h3>Insumos registrados</h3>
+            <div>
+                <table class="table">
+                    <tbody data-bind="foreach: insumos()">
+                        <tr>
+                            <td data-bind="text:insumo"></td>
+                            <td>
+                                <button class="btn btn-danger">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
 </article>
