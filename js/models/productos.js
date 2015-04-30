@@ -23,6 +23,7 @@ var viewModelProductos = {
     allInsumos: ko.observableArray([]),
     insumoSelectValue: ko.observable(""),
     insumos: ko.observableArray([]),
+    cantidadInsumo: ko.observable(""),
     producto: {
         nombre: ko.observable(""),
         precio: ko.observable("")
@@ -104,7 +105,8 @@ var viewModelProductos = {
         viewModelProductos.selectedProducto.id(item.idproducto());
         viewModelProductos.vistaDetalles(true);
 
-        $.getJSON(baseUrl + "getProductoInsumos/" + item.idproducto(), function (data) {
+        viewModelProductos.insumos([]);
+        $.getJSON(baseUrl + "getProductoInsumo/" + item.idproducto(), function (data) {
             $.each(data, function (i, item) {
                 var i = new productosInsumosView(item.id, item.idinsumo, item.idproducto, item.insumo);
                 viewModelProductos.insumos.push(i);
@@ -116,9 +118,11 @@ var viewModelProductos = {
     },
     addInsumo: function() {
         var data = {
-            idproducto: viewModelProductos.selectedProducto.id(),
-            idinsumo: viewModelProductos.insumoSelectValue()
+            IdProducto: viewModelProductos.selectedProducto.id(),
+            IdInsumo: viewModelProductos.insumoSelectValue(),
+            Cantidad: viewModelProductos.cantidadInsumo()
         };
+
 
         $.ajax({
             type: "POST",
@@ -126,9 +130,31 @@ var viewModelProductos = {
             data: data,
             dataType: "json"
         }).always(function(val){
-            viewModelProductos.getInsumos(viewModelProductos.selectedProducto.id());
+            var a = {
+                producto: viewModelProductos.selectedProducto.nombre,
+                idproducto: viewModelProductos.selectedProducto.id
+            };
+            viewModelProductos.getInsumos(a);
         });
 
+    },
+    deleteInsumo: function(item) {
+        var data = {
+          Id: item.id
+        };
+
+        $.ajax({
+            type: "POST",
+            url: baseUrl + "deleteProductoInsumo",
+            data: data,
+            dataType: "json"
+        }).always(function(val){
+            var a = {
+                producto: viewModelProductos.selectedProducto.nombre,
+                idproducto: viewModelProductos.selectedProducto.id
+            };
+            viewModelProductos.getInsumos(a);
+        });
     },
     showNew: function() {
         viewModelProductos.showList(false);

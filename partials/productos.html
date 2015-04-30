@@ -51,7 +51,8 @@
                            value: insumoSelectValue,
                            optionsValue: 'id',
                            optionsCaption: 'Selecciona uno...'">
-            </select>
+            </select><br><br>
+            <input class="input-sm" type="text" data-bind="textInput: cantidadInsumo" placeholder="Cantidad"><br><br>
             <button class="btn btn-primary" data-bind="click: addInsumo">Agregar</button>
         </div>
 
@@ -63,7 +64,7 @@
                         <tr>
                             <td data-bind="text:insumo"></td>
                             <td>
-                                <button class="btn btn-danger">Eliminar</button>
+                                <button class="btn btn-danger" data-bind="click: $parent.deleteInsumo">Eliminar</button>
                             </td>
                         </tr>
                     </tbody>
