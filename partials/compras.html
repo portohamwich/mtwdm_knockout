@@ -1,0 +1,80 @@
+<article id="comprasWrapper">
+    <div class="loading" data-bind="visible: loading">
+        <div class="facebookG">
+            <div class="blockG_1 facebook_blockG">
+            </div>
+            <div class="facebook_blockG blockG_2">
+            </div>
+            <div class="facebook_blockG blockG_3">
+            </div>
+        </div>
+    </div>
+
+    <h1>Compras</h1>
+
+    <div data-bind="visible: showList()">
+        <button class="btn btn-default" data-bind="click: showNew">Registrar compra</button>
+        <button class="btn btn-default" data-bind="click: getPagadas, visible: !pagadas()">Ver pagadas</button>
+        <button class="btn btn-default" data-bind="click: getPorPagar, visible: pagadas()">Ver por pagar</button>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Proveedor</td>
+                    <td>Insumo</td>
+                    <td>Cantidad</td>
+                    <td>Total</td>
+                    <td>Fecha</td>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: compras">
+                <tr>
+                    <td data-bind="text: proveedor"></td>
+                    <td data-bind="text: insumo"></td>
+                    <td data-bind="text: cantidad"></td>
+                    <td data-bind="text: total"></td>
+                    <td data-bind="text: fecha"></td>
+                    <td data-bind="visible: !pagado">
+                       <button class="btn btn-primary">Pagar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div data-bind="visible: !showList()">
+        <select style="color: grey" class="input-sm" data-bind="options: proveedores,
+                           optionsText: 'proveedor',
+                           value: proveedorSelectValue,
+                           optionsValue: 'idproveedor',
+                           optionsCaption: 'Selecciona un proveedor'">
+        </select>
+        <br><br>
+        <select style="color: grey" class="input-sm" data-bind="options: insumos,
+                           optionsText: 'insumo',
+                           value: insumoSelectValue,
+                           optionsValue: 'idinsumo',
+                           optionsCaption: 'Selecciona un insumo'">
+        </select>
+        <br><br>
+        <input class="input-sm" type="text" placeholder="Cantidad" data-bind="textInput: insumoObj.cantidad"><br><br>
+        <input class="input-sm" type="text" placeholder="Precio" data-bind="textInput: insumoObj.precio"><br><br>
+        <input class="input-sm" type="text" placeholder="Total" data-bind="textInput: insumoObj.total"><br><br>
+        <input class="input-sm" type="date" placeholder="Fecha" data-bind="textInput: insumoObj.fecha"><br><br>
+
+        <button class="btn btn-default" data-bind="click:hideNew">Cancelar</button>
+        <button class="btn btn-primary" data-bind="click:saveCompra">Guardar</button>
+    </div>
+
+</article>
+
+<script src="js/models/compras.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.facebookG').center();
+        viewModelCompras.getInsumos();
+        viewModelCompras.getProveedores();
+        viewModelCompras.getPorPagar();
+        ko.applyBindings(viewModelCompras, document.getElementById("comprasWrapper"));
+    });
+</script>
