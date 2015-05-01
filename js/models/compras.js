@@ -96,16 +96,16 @@ viewModelCompras = {
     },
     saveCompra: function() {
         var data = {
-            idproveedor: viewModelCompras.proveedorSelectValue(),
-            idinsumo: viewModelCompras.insumoSelectValue(),
-            total: parseFloat(viewModelCompras.insumoObj.total()),
-            fecha: viewModelCompras.insumoObj.fecha(),
-            cantidad: viewModelCompras.insumoObj.cantidad(),
-            precio: parseFloat(viewModelCompras.insumoObj.precio()),
-            pagado: 0
+            idproveedor: ""+viewModelCompras.proveedorSelectValue(),
+            idinsumo: ""+viewModelCompras.insumoSelectValue(),
+            total: ""+viewModelCompras.insumoObj.total(),
+            fecha: ""+viewModelCompras.insumoObj.fecha(),
+            cantidad: ""+viewModelCompras.insumoObj.cantidad(),
+            pagado: "0",
+            precio: ""+viewModelCompras.insumoObj.precio()
         };
 
-        console.log(data);
+        socket.emit("COMPRA_REGISTRADA_EVENT");
 
         $.ajax({
             type: "POST",

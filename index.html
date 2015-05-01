@@ -19,6 +19,10 @@
                 <li><a href="#compras">Compras</a></li>
                 <li><a href="#ventas">Ventas</a></li>
             </nav>
+
+            <div id="bell" style="display: none;position:absolute;right: 10px;top: 10px;">
+                Se hizo una compra
+            </div>
         </div>
     </header>
     <div class="navbar navbar-default"></div>
@@ -32,5 +36,17 @@
     <script src="js/routing.js"></script>
     <script src="js/globals.js"></script>
     <script src="js/lib/jquery.dataTables.js"></script>
+    <script src="js/lib/socket.io.js"></script>
+    <script>
+        var socket = io.connect('http://localhost:8000');
+        socket.emit("connection");
+        socket.on("connected", function(){
+            console.log("conectado");
+        });
+
+        socket.on("COMPRA_REGISTRADA", function(){
+            $('#bell').show();
+        });
+    </script>
 </body>
 </html>
