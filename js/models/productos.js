@@ -1,9 +1,10 @@
 //Modelos
-function productosView(_idproducto, _producto, _precio) {
+function productosView(_idproducto, _producto, _precio, _existencia) {
     return {
         idproducto : ko.observable(_idproducto),
         producto: ko.observable(_producto),
-        precio: ko.observable(_precio)
+        precio: ko.observable(_precio),
+        existencia: ko.observable(_existencia)
     }
 }
 
@@ -36,7 +37,7 @@ var viewModelProductos = {
         viewModelProductos.productos([]);
         $.getJSON(baseUrl + "getProductos", function (data) {
             $.each(data, function (i, item) {
-                var c = new productosView(item.idproducto, item.producto, item.precio);
+                var c = new productosView(item.idproducto, item.producto, item.precio, item.existencia);
                 viewModelProductos.productos.push(c);
             });
             viewModelProductos.loading(false);
@@ -71,12 +72,17 @@ var viewModelProductos = {
     },
     saveProducto: function() {
         var data = {
-            producto: this.producto.producto(),
+            producto: this.producto.nombre(),
             precio: this.producto.precio(),
-            existencia: this.producto.existencia()
+            existencia: 5
         };
 
         var url = baseUrl + "createProducto";
+
+        if(viewModelProductos.selectedProducto.id) {
+            data.idproducto = viewModelProductos.selectedProducto.id;
+            url = baseUrl + "updateProducto";
+        }
 
 
         $.ajax({
@@ -89,14 +95,28 @@ var viewModelProductos = {
             viewModelProductos.getProductos();
         });
     },
+    deleteProducto: function(item) {
+      var data = { idproducto: item.idproducto() };
+
+        $.ajax({
+            type: "POST",
+            url: baseUrl + "deleteProducto",
+            data: data,
+            dataType: "json"
+        }).always(function(val){
+            viewModelProductos.hideNew();
+            viewModelProductos.getProductos();
+        });
+    },
     getProducto: function(item) {
         viewModelProductos.loading(true);
-        viewModelProductos.selectedProducto(item.idproducto());
-        console.log(item);
+        viewModelProductos.selectedProducto.id(item.idproducto());
 
         $.getJSON(baseUrl + "getProducto/" + item.idproducto(), function (data) {
-            console.log(data);
+            viewModelProductos.producto.nombre(data[0].producto);
+            viewModelProductos.producto.precio(data[0].precio);
             viewModelProductos.loading(false);
+            viewModelProductos.showNew();
         });
     },
     getInsumos: function(item) {
@@ -162,9 +182,8 @@ var viewModelProductos = {
     hideNew: function() {
         viewModelProductos.selectedProducto.id(null);
         viewModelProductos.selectedProducto.nombre(null);
-        viewModelProductos.producto.producto("");
+        viewModelProductos.producto.nombre("");
         viewModelProductos.producto.precio("");
-        viewModelProductos.producto.existencia("");
 
         viewModelProductos.showList(true);
     }

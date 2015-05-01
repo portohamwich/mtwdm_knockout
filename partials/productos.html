@@ -34,10 +34,21 @@
                     <td style="text-align: right">
                         <button class="btn btn-default" data-bind="click: $parent.getInsumos">Insumos</button>
                         <button class="btn btn-default" data-bind="click: $parent.getProducto">Editar</button>
+                        <button class="btn btn-danger" data-bind="click: $parent.deleteProducto">Eliminar</button>
                     </td>
                 </tr>
                 </tbody>
             </table>
+        </div>
+
+        <div data-bind="visible: !loading() && !showList()">
+            <div class="col-sm-12">
+                <input class="input-sm" type="text" placeholder="Nombre" style="margin-bottom: 10px;" data-bind="textInput:producto.nombre"><br>
+                <input class="input-sm" type="text" placeholder="Precio" style="margin-bottom: 10px;" data-bind="textInput:producto.precio"><br />
+                <br><br>
+                <button class="btn btn-default" data-bind="click: hideNew">Cancelar</button>
+                <button class="btn btn-primary" data-bind="click: saveProducto">Guardar</button>
+            </div>
         </div>
     </div>
 
