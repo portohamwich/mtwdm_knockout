@@ -17,11 +17,11 @@ var server = app.listen(8000, function () {
 
 var io = require('socket.io').listen(server);
 
-io.sockets.on('connection', function(socket){
-    socket.emit('connected');
-});
-
-io.sockets.on('COMPRA_REGISTRADA_EVENT', function(socket){
-    console.log('compra registrada');
-    socket.emit('COMPRA_REGISTRADA');
+io.on('connection', function(socket){
+    console.log('conectado');
+    socket.on('COMPRA_REGISTRADA',function(){
+        console.log('Entro a Emit.');
+        io.sockets.emit('COMPRA_REGISTRADA');
+        console.log('COMPRA_REGISTRADA');
+    });
 });

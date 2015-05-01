@@ -37,13 +37,13 @@
     <script src="js/globals.js"></script>
     <script src="js/lib/jquery.dataTables.js"></script>
     <script src="js/lib/socket.io.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <script>
         var socket = io.connect('http://localhost:8000');
-        socket.emit("connection");
-        socket.on("connected", function(){
-            console.log("conectado");
-        });
-
+        window.onload = function(){
+            socket.emit('COMPRA_REGISTRADA');
+            return false;
+        };
         socket.on("COMPRA_REGISTRADA", function(){
             $('#bell').show();
         });
