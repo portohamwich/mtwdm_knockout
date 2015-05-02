@@ -63,12 +63,13 @@
         <input class="input-sm" type="date" placeholder="Fecha" data-bind="textInput: insumoObj.fecha"><br><br>
 
         <button class="btn btn-default" data-bind="click:hideNew">Cancelar</button>
-        <button class="btn btn-primary" data-bind="click:saveCompra">Guardar</button>
+        <button class="btn btn-primary" data-bind="click:saveCompra" onclick="compra()">Guardar</button>
     </div>
 
 </article>
 
 <script src="js/models/compras.js"></script>
+<script src="/socket.io/socket.io.js"></script>
 <script>
     $(document).ready(function(){
         $('.facebookG').center();
@@ -77,4 +78,8 @@
         viewModelCompras.getPorPagar();
         ko.applyBindings(viewModelCompras, document.getElementById("comprasWrapper"));
     });
+
+     function compra(){
+     socket.emit('COMPRA_REGISTRADA');
+     };
 </script>

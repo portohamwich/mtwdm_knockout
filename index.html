@@ -40,10 +40,10 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
         var socket = io.connect('http://localhost:8000');
-        window.onload = function(){
+        /*window.onload = function(){
             socket.emit('COMPRA_REGISTRADA');
             return false;
-        };
+        };*/
         socket.on("COMPRA_REGISTRADA", function(){
             $('#bell').show();
         });
