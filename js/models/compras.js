@@ -105,7 +105,7 @@ viewModelCompras = {
             precio: ""+viewModelCompras.insumoObj.precio()
         };
 
-        socket.emit("COMPRA_REGISTRADA_EVENT");
+
 
         $.ajax({
             type: "POST",
@@ -115,6 +115,7 @@ viewModelCompras = {
         }).always(function(val){
             viewModelCompras.getPorPagar();
             viewModelCompras.hideNew();
+            socket.emit("COMPRA_REGISTRADA_EVENT");
         });
     }
 };

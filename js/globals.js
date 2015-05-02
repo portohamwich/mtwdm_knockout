@@ -21,4 +21,10 @@ jQuery.fn.center = function () {
     this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) +
         $(window).scrollLeft()) + "px");
     return this;
-}
+};
+
+getCantidadCompras = function(){
+    $.getJSON(baseUrl + "getCompras/0", function(data){
+       $('#cantidadPorPagar').html(data.length);
+    });
+};

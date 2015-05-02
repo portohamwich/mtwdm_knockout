@@ -20,8 +20,10 @@
                 <li><a href="#ventas">Ventas</a></li>
             </nav>
 
-            <div id="bell" style="display: none;position:absolute;right: 10px;top: 10px;">
-                Se hizo una compra
+            <div id="bell" style="position:absolute;right: 10px;top: 10px;cursor: pointer" title="Compras por pagar"
+                    onclick="location.href='#compras'">
+                <img src="Bell.png" style="width: 19px">
+                <div id="cantidadPorPagar" style="border: 2px solid #0ce3ac;border-radius: 100%;font-size: 9px;padding: 2px;position: absolute;top: -1px;right: 17px;"></div>
             </div>
         </div>
     </header>
@@ -45,7 +47,13 @@
             return false;
         };*/
         socket.on("COMPRA_REGISTRADA", function(){
-            $('#bell').show();
+            setTimeout(function(){
+                getCantidadCompras();
+            }, 1000);
+        });
+
+        $(document).ready(function(){
+            getCantidadCompras();
         });
     </script>
 </body>
