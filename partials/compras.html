@@ -25,6 +25,7 @@
                     <td>Cantidad</td>
                     <td>Total</td>
                     <td>Fecha</td>
+
                 </tr>
             </thead>
             <tbody data-bind="foreach: compras">
@@ -34,8 +35,8 @@
                     <td data-bind="text: cantidad"></td>
                     <td data-bind="text: total"></td>
                     <td data-bind="text: fecha"></td>
-                    <td data-bind="visible: !pagado">
-                       <button class="btn btn-primary">Pagar</button>
+                    <td data-bind="visible: !pagado()">
+                       <button class="btn btn-primary" data-bind="click:$parent.pagarCompra">Pagar</button>
                     </td>
                 </tr>
             </tbody>

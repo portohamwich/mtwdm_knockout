@@ -1,3 +1,72 @@
-<script src="js/lib/chart.js-master/Chart.js"></script>
 
-<canvas id="myChart" width="400" height="400"></canvas>
+<h1>Reporte</h1>
+
+<input class="input-sm" type="date" id="inicio">
+<input class="input-sm" type="date" id="final">
+<input class="btn btn-primary" type="button" value="Mostrar" onclick="mostrarReporte();">
+
+
+<canvas id="myCanvas" width="400" height="200"></canvas>
+
+<script src="js/lib/chart.js-master/Chart.js"></script>
+<script>
+    mostrarReporte = function() {
+
+        $.getJSON(baseUrl + "getReporteTop/1/"+$('#inicio').val()+"/"+$('#final').val()+"/10", function (data) {
+            var values = [];
+            $.each(data[1].split(','), function(i, item){
+                values.push(parseInt(item.replace(/"/g,"")));
+            });
+
+            console.log(data);
+
+            var data = {
+                labels: data[0].split(','),
+                datasets: [{
+                    label: "My First dataset",
+                    fillColor: "rgba(220,220,220,0.5)",
+                    strokeColor: "rgba(220,220,220,0.8)",
+                    highlightFill: "rgba(220,220,220,0.75)",
+                    highlightStroke: "rgba(220,220,220,1)",
+                    data: values
+                }]
+            };
+
+            var ctx = document.getElementById("myCanvas").getContext("2d");
+            window.myLine = new Chart(ctx).Line(data, { responsive: true });
+        });
+    };
+
+    function DrawChart() {
+        var data = {
+            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            datasets: [
+                {
+                    label: "My First dataset",
+                    fillColor: "rgba(220,220,220,0.5)",
+                    strokeColor: "rgba(220,220,220,0.8)",
+                    highlightFill: "rgba(220,220,220,0.75)",
+                    highlightStroke: "rgba(220,220,220,1)",
+                    data: [65, 59, 80, 81, 56, 55, 40]
+                },
+                {
+                    label: "My Second dataset",
+                    fillColor: "rgba(151,187,205,0.5)",
+                    strokeColor: "rgba(151,187,205,0.8)",
+                    highlightFill: "rgba(151,187,205,0.75)",
+                    highlightStroke: "rgba(151,187,205,1)",
+                    data: [28, 48, 40, 19, 86, 27, 90]
+                }
+            ]
+        };
+
+        var ctx = document.getElementById("myCanvas").getContext("2d");
+        window.myLine = new Chart(ctx).Line(data, { responsive: true });
+    }
+
+
+    $(document).ready(function(){
+       //DrawChart();
+    });
+
+</script>

@@ -15,5 +15,6 @@ function getPartial() {
         case '#productos': $('#content').load('partials/productos.html'); break;
         case '#compras': $('#content').load('partials/compras.html'); break;
         case '#ventas': $('#content').load('partials/ventas.html'); break;
+        case '#reporte': $('#content').load('partials/reporte.html'); break;
     }
 }

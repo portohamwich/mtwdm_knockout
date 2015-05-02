@@ -1,5 +1,6 @@
-function compraView(idinsumo, idproveedor, cantidad, precio, total, fecha, pagado, insumo, proveedor) {
+function compraView(_idcompra, idinsumo, idproveedor, cantidad, precio, total, fecha, pagado, insumo, proveedor) {
     return {
+        idcompra: ko.observable(_idcompra),
         idinsumo: ko.observable(idinsumo),
         idproveedor: ko.observable(idproveedor),
         cantidad: ko.observable(cantidad),
@@ -50,8 +51,8 @@ viewModelCompras = {
         viewModelCompras.compras([]);
         $.getJSON(baseUrl + "getCompras/"+tipo, function(data){
             $.each(data, function(i, item){
-               var compra = new compraView(item.idinsumo, item.idproveedor, item.cantidad, item.precio, item.total,
-                                           item.fecha, item.pagado, item.insumo, item.proveedor);
+               var compra = new compraView(item.idcompra, item.idinsumo, item.idproveedor, item.cantidad, item.precio,
+                                           item.total, item.fecha, item.pagado, item.insumo, item.proveedor);
                viewModelCompras.compras.push(compra);
             });
 
@@ -94,6 +95,20 @@ viewModelCompras = {
             viewModelCompras.loading(false);
         });
     },
+    pagarCompra: function(item) {
+        var data = { idcompra: item.idcompra(), pagado: 1};
+
+        $.ajax({
+            type: "POST",
+            url: baseUrl + "updatePago",
+            data: data,
+            dataType: "json"
+        }).always(function(val){
+            viewModelCompras.getPorPagar();
+            viewModelCompras.hideNew();
+            socket.emit("COMPRA_REGISTRADA_EVENT");
+        });
+    },
     saveCompra: function() {
         var data = {
             idproveedor: ""+viewModelCompras.proveedorSelectValue(),
@@ -104,7 +119,6 @@ viewModelCompras = {
             pagado: "0",
             precio: ""+viewModelCompras.insumoObj.precio()
         };
-
 
 
         $.ajax({
