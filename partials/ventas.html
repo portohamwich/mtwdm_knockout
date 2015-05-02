@@ -1,12 +1,13 @@
+<article id="ventasWrapper">
 <div id="wrapper">
 
-    <div>
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Ventas</h1>
-            </div>
-            <!-- /.col-lg-12 -->
-        </div>
+    <h1 class="page-header">Ventas</h1>
+
+
+
+    <div data-bind="visible: showList">
+        <button class="btn btn-default" data-bind="click:showNew">Registrar venta</button><br><br>
+
         <!-- /.row -->
         <div class="row">
             <div class="col-lg-12">
@@ -48,13 +49,45 @@
     </div>
     <!-- /#page-wrapper -->
 
+    <div data-bind="visible:!showList()">
+        <select style="color: grey" class="input-sm" data-bind="options: productos,
+                           optionsText: 'producto',
+                           value: productosSelectValue,
+                           optionsValue: 'idproducto',
+                           optionsCaption: 'Selecciona un producto'">
+        </select>
+        <br><br>
+        <select style="color: grey" class="input-sm" data-bind="options: clientes,
+                           optionsText: 'cliente',
+                           value: clientesSelectValue,
+                           optionsValue: 'idcliente',
+                           optionsCaption: 'Selecciona un cliente'">
+        </select>
+        <br><br>
+        <input class="input-sm" type="text" data-bind="textInput:venta.nopedido" placeholder="Numero de pedido"><br><br>
+        <input class="input-sm" type="text" data-bind="textInput:venta.cantidad" placeholder="Cantidad"><br><br>
+        <input class="input-sm" type="text" data-bind="textInput:venta.nolote" placeholder="Numero de lote"><br><br>
+        <input class="input-sm" type="text" data-bind="textInput:venta.precio" placeholder="Precio"><br><br>
+        <input class="input-sm" type="text" data-bind="textInput:venta.total" placeholder="Total"><br><br>
+        <input class="input-sm" type="date" data-bind="textInput:venta.fecha" placeholder="Fecha"><br><br>
+
+        <button class="btn btn-default" data-bind="click:hideNew">Cancelar</button>
+        <button class="btn btn-primary" data-bind="click:saveVenta">Guardar</button>
+    </div>
+
 </div>
 <!-- /#wrapper -->
+</article>
 
+<script src="js/models/ventas.js"></script>
 <script type="text/javascript">
     var $URI_BASE_API = "http://produccionapi.azurewebsites.net/";
 
     $(document).ready(function () {
+        ko.applyBindings(viewModelVentas, document.getElementById("ventasWrapper"));
+        viewModelVentas.getClientes();
+        viewModelVentas.getProductos();
+
         var dt = $('#example').DataTable({
             "lengthMenu":[[5, 10, 15, 20, 25, 30], [5, 10, 15, 20, 25, 30]],
             "displayLength": 5,
