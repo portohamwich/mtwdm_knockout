@@ -24,4 +24,10 @@ io.on('connection', function(socket){
         io.sockets.emit('COMPRA_REGISTRADA');
         console.log('COMPRA_REGISTRADA');
     });
+
+    socket.on('COMPRA_REGISTRADA2',function(){
+        console.log('Entro a Emit.');
+        io.sockets.emit('COMPRA_REGISTRADA');
+        console.log('COMPRA_REGISTRADA');
+    });
 });

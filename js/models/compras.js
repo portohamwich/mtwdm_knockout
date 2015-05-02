@@ -106,7 +106,7 @@ viewModelCompras = {
         }).always(function(val){
             viewModelCompras.getPorPagar();
             viewModelCompras.hideNew();
-            socket.emit("COMPRA_REGISTRADA_EVENT");
+            socket.emit("COMPRA_REGISTRADA");
         });
     },
     saveCompra: function() {
@@ -129,7 +129,7 @@ viewModelCompras = {
         }).always(function(val){
             viewModelCompras.getPorPagar();
             viewModelCompras.hideNew();
-            socket.emit("COMPRA_REGISTRADA_EVENT");
+            socket.emit("COMPRA_REGISTRADA");
         });
     }
 };
